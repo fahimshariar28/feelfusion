@@ -1,26 +1,111 @@
-@import "tailwindcss";
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+@import "antd/dist/reset.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --max-width: 1200px;
+  --border-radius: 8px;
+  --font-mono:
+    ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 240, 245, 255;
+  --background-end-rgb: 230, 235, 250;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark-theme {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 20, 20, 30;
+  --background-end-rgb: 10, 10, 20;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb))) fixed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5d1eb;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3b8e0;
+}
+
+.dark-theme ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* RTL Support */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .ant-select-selection-item {
+  text-align: right;
+}
+
+/* Emoji container animation */
+.emoji-container {
+  transition: all 0.3s ease;
+}
+
+.emoji-container:hover {
+  transform: scale(1.1);
+}
+
+/* Fade in animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
