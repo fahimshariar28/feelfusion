@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ConfigProvider } from "antd"
+import ThemeProvider from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -13,7 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ConfigProvider>{children}</ConfigProvider>
+        <ThemeProvider>
+          <ConfigProvider>{children}</ConfigProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
