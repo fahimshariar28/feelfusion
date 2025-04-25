@@ -11,6 +11,7 @@ export async function analyzeSentiment(text, language = "en") {
     const languageCode =
       language === "en"
         ? "en"
+        : "en";
 
     const response = await fetch(`${env.TEXT_ENDPOINT}/text/analytics/v3.0/sentiment`, {
       method: "POST",
