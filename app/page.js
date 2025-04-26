@@ -11,6 +11,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion"
 import { analyzeSentiment } from "@/app/actions"
 import { SentimentEmoji } from "@/components/sentiment-emoji"
+import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { useTheme } from "@/components/theme-provider"
 
@@ -50,6 +51,10 @@ export default function Home() {
 
   const handleSelectSuggestion = (text) => {
     setMessageText(text)
+  }
+
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang)
   }
 
   const handleSubmit = async () => {
@@ -351,6 +356,7 @@ export default function Home() {
           padding: "16px 24px",
         }}
       >
+        <LanguageSelector language={language} onLanguageChange={handleLanguageChange} />
         <ThemeToggle />
       </Header>
       <Content style={{ padding: "0 24px", maxWidth: 1200, margin: "0 auto", width: "100%" }}>
