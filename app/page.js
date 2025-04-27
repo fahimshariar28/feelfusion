@@ -13,6 +13,7 @@ import { analyzeSentiment } from "@/app/actions"
 import { SentimentEmoji } from "@/components/sentiment-emoji"
 import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { TextSuggestions } from "@/components/text-suggestions"
 import { useTheme } from "@/components/theme-provider"
 
 const { Header, Content } = Layout
@@ -26,32 +27,7 @@ export default function Home() {
   const [language, setLanguage] = useState("en")
   const [result, setResult] = useState(null)
   const [history, setHistory] = useState([])
-  const [isClient, setIsClient] = useState(false)
   const { theme } = useTheme()
-
-  // Load history from localStorage on component mount
-  useEffect(() => {
-    setIsClient(true)
-    const savedHistory = localStorage.getItem("sentimentHistory")
-    if (savedHistory) {
-      try {
-        setHistory(JSON.parse(savedHistory))
-      } catch (e) {
-        console.error("Error parsing saved history:", e)
-      }
-    }
-  }, [])
-
-  // Save history to localStorage whenever it changes
-  useEffect(() => {
-    if (isClient) {
-      localStorage.setItem("sentimentHistory", JSON.stringify(history))
-    }
-  }, [history, isClient])
-
-  const handleSelectSuggestion = (text) => {
-    setMessageText(text)
-  }
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang)
@@ -131,6 +107,8 @@ export default function Home() {
                   onSearch={handleSubmit}
                   loading={isAnalyzing}
                 />
+
+                <TextSuggestions onSelectSuggestion={handleSelectSuggestion} language={language} />
 
                 <AnimatePresence>
                   {result && (
