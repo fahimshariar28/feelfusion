@@ -6,10 +6,12 @@ import { Layout, Card, Input, Button, Tabs, Row, Col, Progress, Typography, Spac
 import {
   SendOutlined,
   LoadingOutlined,
+  InfoCircleOutlined,
   DownloadOutlined,
 } from "@ant-design/icons"
 import { motion, AnimatePresence } from "framer-motion"
 import { analyzeSentiment } from "@/app/actions"
+import { SentimentHistory } from "@/components/sentiment-history"
 import { SentimentEmoji } from "@/components/sentiment-emoji"
 import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -28,6 +30,10 @@ export default function Home() {
   const [result, setResult] = useState(null)
   const [history, setHistory] = useState([])
   const { theme } = useTheme()
+
+  const handleSelectSuggestion = (text) => {
+    setMessageText(text)
+  }
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang)
@@ -192,6 +198,24 @@ export default function Home() {
             </Card>
           </Col>
           <Col xs={24} md={8}>
+            <Card
+              title="Recent History"
+              extra={
+                <Button
+                  type="text"
+                  icon={<InfoCircleOutlined />}
+                  size="small"
+                  title="History is stored locally in your browser"
+                />
+              }
+            >
+              <SentimentHistory
+                history={history}
+                onClearHistory={handleClearHistory}
+                onExportHistory={handleExportHistory}
+                onDeleteItem={handleDeleteHistoryItem}
+              />
+            </Card>
           </Col>
         </Row>
       ),
