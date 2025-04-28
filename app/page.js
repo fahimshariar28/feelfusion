@@ -29,7 +29,28 @@ export default function Home() {
   const [language, setLanguage] = useState("en")
   const [result, setResult] = useState(null)
   const [history, setHistory] = useState([])
+  const [isClient, setIsClient] = useState(false)
   const { theme } = useTheme()
+
+  // Load history from localStorage on component mount
+  useEffect(() => {
+    setIsClient(true)
+    const savedHistory = localStorage.getItem("sentimentHistory")
+    if (savedHistory) {
+      try {
+        setHistory(JSON.parse(savedHistory))
+      } catch (e) {
+        console.error("Error parsing saved history:", e)
+      }
+    }
+  }, [])
+
+  // Save history to localStorage whenever it changes
+  useEffect(() => {
+    if (isClient) {
+      localStorage.setItem("sentimentHistory", JSON.stringify(history))
+    }
+  }, [history, isClient])
 
   const handleSelectSuggestion = (text) => {
     setMessageText(text)
