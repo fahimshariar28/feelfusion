@@ -248,7 +248,7 @@ export default function Home() {
       children: (
         <Row gutter={[16, 16]}>
           <Col xs={24} md={12}>
-           <SentimentChart history={history} />
+            <SentimentChart history={history} />
           </Col>
           <Col xs={24} md={12}>
             <Card title="Sentiment Summary">
