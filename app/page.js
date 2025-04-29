@@ -16,6 +16,7 @@ import { SentimentEmoji } from "@/components/sentiment-emoji"
 import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { TextSuggestions } from "@/components/text-suggestions"
+import { SentimentChart } from "@/components/sentiment-chart"
 import { useTheme } from "@/components/theme-provider"
 
 const { Header, Content } = Layout
@@ -247,6 +248,7 @@ export default function Home() {
       children: (
         <Row gutter={[16, 16]}>
           <Col xs={24} md={12}>
+           <SentimentChart history={history} />
           </Col>
           <Col xs={24} md={12}>
             <Card title="Sentiment Summary">
