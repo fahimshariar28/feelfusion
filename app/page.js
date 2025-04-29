@@ -16,7 +16,9 @@ import { SentimentEmoji } from "@/components/sentiment-emoji"
 import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { TextSuggestions } from "@/components/text-suggestions"
+import { ConfettiEffect } from "@/components/confetti-effect"
 import { SentimentChart } from "@/components/sentiment-chart"
+import { TextToSpeech } from "@/components/text-to-speech"
 import { useTheme } from "@/components/theme-provider"
 
 const { Header, Content } = Layout
@@ -156,6 +158,7 @@ export default function Home() {
                         }}
                       >
                         <SentimentEmoji sentiment={result.sentiment} size={80} />
+                        <TextToSpeech text={messageText} sentiment={result.sentiment} />
                       </div>
                       <div style={{ textAlign: "center", marginBottom: 16 }}>
                         <Text
@@ -372,6 +375,7 @@ export default function Home() {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
+      <ConfettiEffect sentiment={result?.sentiment || null} />
       <Header
         style={{
           background: "transparent",
