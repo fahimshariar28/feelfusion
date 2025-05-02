@@ -14,9 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider>
-          <ConfigProvider>{children}</ConfigProvider>
-        </ThemeProvider>
+        <ConfigProvider>{children}</ConfigProvider>
       </body>
     </html>
   )

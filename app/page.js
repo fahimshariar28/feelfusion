@@ -19,7 +19,6 @@ import { TextSuggestions } from "@/components/text-suggestions"
 import { ConfettiEffect } from "@/components/confetti-effect"
 import { SentimentChart } from "@/components/sentiment-chart"
 import { TextToSpeech } from "@/components/text-to-speech"
-import { useTheme } from "@/components/theme-provider"
 
 const { Header, Content } = Layout
 const { Title, Text } = Typography
@@ -33,7 +32,6 @@ export default function Home() {
   const [result, setResult] = useState(null)
   const [history, setHistory] = useState([])
   const [isClient, setIsClient] = useState(false)
-  const { theme } = useTheme()
 
   // Load history from localStorage on component mount
   useEffect(() => {
@@ -259,13 +257,13 @@ export default function Home() {
                 <Space direction="vertical" size="large" style={{ width: "100%" }}>
                   <Row gutter={16}>
                     <Col span={12}>
-                      <Card style={{ background: theme === "dark" ? "#1f1f1f" : "#f0f7ff" }}>
+                      <Card style={{ background: "#f0f7ff" }}>
                         <Text type="secondary">Total Analyses</Text>
                         <div style={{ fontSize: 28, fontWeight: "bold", color: "#1890ff" }}>{history.length}</div>
                       </Card>
                     </Col>
                     <Col span={12}>
-                      <Card style={{ background: theme === "dark" ? "#1f1f1f" : "#f0f7ff" }}>
+                      <Card style={{ background: "#f0f7ff" }}>
                         <Text type="secondary">Most Common</Text>
                         <div style={{ fontSize: 28, fontWeight: "bold", color: "#1890ff" }}>
                           {history.length > 0
@@ -386,7 +384,6 @@ export default function Home() {
         }}
       >
         <LanguageSelector language={language} onLanguageChange={handleLanguageChange} />
-        <ThemeToggle />
       </Header>
       <Content style={{ padding: "0 24px", maxWidth: 1200, margin: "0 auto", width: "100%" }}>
         <motion.div
