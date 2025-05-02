@@ -16,7 +16,7 @@ import { SentimentEmoji } from "@/components/sentiment-emoji"
 import { LanguageSelector } from "@/components/language-selector"
 import { TextSuggestions } from "@/components/text-suggestions"
 import { ConfettiEffect } from "@/components/confetti-effect"
-import { SentimentChart } from "@/components/sentiment-chart"
+// import { SentimentChart } from "@/components/sentiment-chart"
 import { TextToSpeech } from "@/components/text-to-speech"
 
 const { Header, Content } = Layout
@@ -246,10 +246,10 @@ export default function Home() {
       key: "2",
       label: "Insights",
       children: (
-        <Row gutter={[16, 16]}>
-          <Col xs={24} md={12}>
+        <Row gutter={[16, 16]} justify={"center"}>
+          {/* <Col xs={24} md={12}>
             <SentimentChart history={history} />
-          </Col>
+          </Col> */}
           <Col xs={24} md={12}>
             <Card title="Sentiment Summary">
               {history.length > 0 ? (
