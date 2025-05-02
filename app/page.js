@@ -401,6 +401,26 @@ export default function Home() {
 
         <Tabs activeKey={activeTab} onChange={setActiveTab} items={tabItems} centered size="large" />
       </Content>
+
+      <footer
+        style={{
+          textAlign: "center",
+          padding: "16px 0",
+          background: "#f0f2f5",
+          position: "relative",
+          bottom: 0,
+          width: "100%",
+          marginTop: "15px",
+          borderTop: "1px solid #e8e8e8",
+        }}
+      >
+        <Text type="secondary">
+          Developed by{" "}
+          <a href="https://fahimshariar.netlify.app" target="_blank" rel="noopener noreferrer">
+            Fahim Shariar
+          </a>
+        </Text>
+      </footer>
     </Layout>
   )
 }
