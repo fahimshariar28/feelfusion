@@ -26,37 +26,37 @@ Before you begin, ensure you have:
 
 ### 1. Clone the Repository
 
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/feelfusion.git
 cd feelfusion
-\`\`\`
+```
 
 ### 2. Install Dependencies
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ### 3. Set Up Environment Variables
 
 Create a `.env.local` file in the root directory with the following variables:
 
-\`\`\`
+```bash
 TEXT_API_KEY = your_azure_text_api_key
 TEXT_ENDPOINT = your_azure_text_endpoint
-\`\`\`
+```
 
 ### 4. Run the Development Server
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
 ## Project Structure
 
-\`\`\`
+```
 feelfusion/
 ├── app/
 │ ├── actions.js # Server actions for sentiment analysis
@@ -80,7 +80,7 @@ feelfusion/
 ├── next.config.js # Next.js configuration
 ├── package.json # Project dependencies
 └── README.md # Project documentation
-\`\`\`
+```
 
 ## How It Works
 
@@ -106,10 +106,10 @@ The application uses Ant Design's theme system. You can customize colors by modi
 
 The easiest way to deploy the application is with Vercel:
 
-\`\`\`bash
+```bash
 npm install -g vercel
 vercel
-\`\`\`
+```
 
 Don't forget to add your environment variables in the Vercel dashboard.
 
@@ -117,10 +117,10 @@ Don't forget to add your environment variables in the Vercel dashboard.
 
 You can also deploy to other platforms like Netlify, AWS Amplify, or traditional hosting by building the application:
 
-\`\`\`bash
+```bash
 npm run build
 npm start
-\`\`\`
+```
 
 ## Troubleshooting
 
