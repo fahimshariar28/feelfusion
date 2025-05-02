@@ -80,7 +80,7 @@ export function SentimentChart({ history }) {
     radius: 0.8,
     label: {
       type: "outer",
-      content: "{name}: {percentage}",
+      content: (data) => `${data?.type}: ${(data?.percent * 100).toFixed(1)}%`,
     },
     interactions: [
       {
