@@ -11,8 +11,6 @@ export function LanguageSelector({ language, onLanguageChange }) {
     { code: "en", name: "English", dir: "ltr" },
     { code: "bn", name: "বাংলা", dir: "ltr" },
     { code: "hi", name: "हिन्दी", dir: "ltr" },
-    { code: "ur", name: "اردو", dir: "rtl" },
-    { code: "ar", name: "العربية", dir: "rtl" },
   ]
 
   const handleChange = (value) => {
