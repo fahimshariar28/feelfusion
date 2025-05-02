@@ -83,7 +83,7 @@ export function SentimentHistory({ history, onClearHistory, onExportHistory, onD
                                   : "secondary"
                           }
                         >
-                          {item.sentiment}
+                          {item.sentiment.charAt(0).toUpperCase() + item.sentiment.slice(1)}
                         </Text>
                         <Text type="secondary">{item.timestamp}</Text>
                       </div>

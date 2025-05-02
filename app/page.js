@@ -266,12 +266,15 @@ export default function Home() {
                         <Text type="secondary">Most Common</Text>
                         <div style={{ fontSize: 28, fontWeight: "bold", color: "#1890ff" }}>
                           {history.length > 0
-                            ? Object.entries(
-                              history.reduce((acc, item) => {
-                                acc[item.sentiment] = (acc[item.sentiment] || 0) + 1
-                                return acc
-                              }, {}),
-                            ).sort((a, b) => b[1] - a[1])[0][0]
+                            ? (() => {
+                              const sentiment = Object.entries(
+                                history.reduce((acc, item) => {
+                                  acc[item.sentiment] = (acc[item.sentiment] || 0) + 1;
+                                  return acc;
+                                }, {})
+                              ).sort((a, b) => b[1] - a[1])[0][0];
+                              return sentiment.charAt(0).toUpperCase() + sentiment.slice(1);
+                            })()
                             : "N/A"}
                         </div>
                       </Card>
